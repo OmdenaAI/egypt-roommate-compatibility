@@ -1,8 +1,5 @@
-# chapter-project-repository-template
-Use this Repository as a template for creating Local Chapter Repositories
 
-
-# [Chapter Challenge Name]
+# Shareable Life | Enhancing Roommate Compatibility Detection through Machine Learning
 
 
 ## Contribution Guidelines
@@ -55,4 +52,6 @@ Use this Repository as a template for creating Local Chapter Repositories
 - Visualization     - Folder to store dashboards, analysis and visualization reports
 - Results           - Folder to store final analysis modelling results for the project.
 
+## Problem statement
 
+The complexity of finding suitable roommates can be daunting, and traditional methods like classified ads or social media may not be effective in finding the right match. Additionally, the process of manually assessing compatibility between potential roommates can be time-consuming and subjective, leading to suboptimal matches.
