@@ -17,4 +17,4 @@ Note : Please Follow the below guidelines to create task folders
 |4|Model deployment (machine learning)|         |
 |5|Model deployment (NLP)|         |
 |6|Web development|         |
-|5|Political Rationale| The entire basis of the political rationale is to create a document upon which we could use as a basis to know if the direction of our current application is viable or not|
+|7|Political Rationale| The entire basis of the political rationale is to create a document upon which we could use as a basis to know if the direction of our current application is viable or not|
