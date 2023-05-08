@@ -74,7 +74,7 @@ Run on your terminal the following command:
 
 ### Navigate
 
-Now you can navigate to the dashboard with http://localhost:500.
+Now you can navigate to the dashboard with http://localhost:5000.
 
 ### Use all the funtions MLflow has
 
