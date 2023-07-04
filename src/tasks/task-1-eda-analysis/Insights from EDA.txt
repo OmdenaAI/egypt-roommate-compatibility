@@ -1,0 +1,3 @@
+The BMI has a negative correlation with increasing fruits intake, daily stpes and sleep hours.
+BMI reduces with increase in these variables
+This means that increasing fruit and veggies intake, taking more steps (exercise) daily and sleeping well improves the BMI
