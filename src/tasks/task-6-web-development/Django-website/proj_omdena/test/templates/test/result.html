@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="text-center">Result: </h1>
+        <div class="alert alert-primary">
+            <h2>The prediction is: {{ result }}</h2>
+        </div>
+    
+        <div class="container text-center">
+            <h4>You will be most compatible with someone who:</h4>
+                <p>{{ is_vegetarian }}.</p>
+                <p>{{music}}.</p>
+                <p>{{smoke}}.</p>
+                <p>{{riser}}.</p>
+                <p>{{tidy}}.</p>
+        </div>
+    </div>
+    
+
+    <h2>Other users with the Same Result:</h2>
+        {% if other_users %}
+        <ul class="list-group mt-4">
+            {% for user in other_users %}
+            <li class="list-group-item">{{ user.user_name }} (Email: {{ user.email }})</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-center mt-4">No other users with the same result found.</p>
+        {% endif %}
+
+        <div class="text-center mt-4">
+            <a href="{% url 'main' %}" class="btn btn-primary">Back to Questionnaire</a>
+        </div>
+</body>
+</html>

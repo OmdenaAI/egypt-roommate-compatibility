@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Extrovert-Introvert Questionnaire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+
+
+        <style>
+            .custom-navbar {
+                background-color: rgba(0, 0, 0, 0.7);
+                padding: 5px;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+                display: flex;
+                justify-content: flex-end;
+                text-align: center;
+                opacity: 1;
+            }
+
+            .nav-links {
+                list-style: none;
+                display: flex;
+            }
+
+            .nav-link {
+                color: white;
+                font-weight: bold;
+                margin: 0 10px;
+                transition: color 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: #05e8ba;
+            }
+            .question-container {
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                margin-bottom: 30px;
+            }
+        
+            /* Add this style for the additional questions box */
+            .additional-questions {
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            /* Add this style for the submit button */
+            .submit-btn {
+                padding: 10px 20px;
+                font-size: 1.2rem;
+                color: white;
+                background-color: #05e8ba;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+        
+            .submit-btn:hover {
+                background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+            }
+        </style>
+        
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="custom-navbar">
+        <ul class="nav-links">
+            {% if not user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signin' %}">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signout' %}">Sign Out</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+
+    <!-- Main content -->
+    <div class="container">
+        {% if show_card %}
+        <!-- Styled card for non-authenticated users -->
+        <div class="card mt-4">
+            <div class="card-body text-center bg-white p-4 shadow">
+                <h5 class="card-title">Login to test your compatibility</h5>
+                <a href="{% url 'signin' %}" class="btn btn-primary btn-lg mt-3" style="background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%); margin-right:10px;">
+                    Sign In
+                </a>
+                <a href="{% url 'register' %}" class="btn btn-primary btn-lg mt-3" style="background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);">
+                    Register
+                </a>
+            </div>
+        </div>
+        {% else %}
+        <h1 class="container text-center">Extrovert-Introvert Questionnaire</h1>
+        <form method="post">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+
+            <div class="container text-center">
+                
+                <br><br>
+                <label for="question1">Question 1: I am a social butterfly.</label>
+                <select name="question1" id="question1">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select> <br><br>
+
+                <!-- <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="question1" value="1" id="question1">
+                <label class="form-check-label" for="question1">
+                    Option 1
+                </label>
+            </div> -->
+
+                <label for="question2">Question 2: I am a reserved person.</label>
+                <select name="question2" id="question2">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select> <br><br>
+
+
+                <label for="question3">Question 3: I feel at ease around people.</label>
+                <select name="question3" id="question3">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select> <br><br>
+
+
+                <label for="question4">Question 4: I maintain a low profile.</label>
+                <select name="question4" id="question4">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select><br><br>
+
+                <!-- <label for="question4">Question 4: I maintain a low profile.</label>
+            <select name="question4" id="question4" >
+                <option value="1" class="form-check-label" for="flexCheckDefault">1 (Not at all)</option>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+
+
+                <option value="2" class="form-check-label" for="flexCheckChecked">2</option>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+
+
+                <option value="3" class="form-check-label" for="flexCheckChecked">3 (Neutral)</option>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+
+
+                <option value="4" class="form-check-label" for="flexCheckChecked">4</option>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+
+
+                <option value="5" class="form-check-label" for="flexCheckChecked">5 (Very much)</option>
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+
+            </select> -->
+
+                <label for="question5">Question 5: I initiate conversations.</label>
+                <select name="question5" id="question5">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select><br> <br>
+
+                <label for="question6">Question 6: I am hesitant to speak.</label>
+                <select name="question6" id="question6">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select><br><br>
+
+                <label for="question7">Question 7: I interact with a wide range of people at parties.</label>
+                <select name="question7" id="question7">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select><br><br>
+
+                <label for="question8">Question 8: I shy away from the spotlight.</label>
+                <select name="question8" id="question8">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select><br><br>
+
+                <label for="question9">Question 9: I don't mind being the center of attention.</label>
+                <select name="question9" id="question9">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select><br><br>
+
+                <label for="question10">Question 10: I am low-key when meeting new individuals.</label>
+                <select name="question10" id="question10">
+                    <option value="1">1 (Not at all)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Neutral)</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Very much)</option>
+                </select><br><br>
+        </form>
+
+        <div class="additional-questions">
+            <h2>Additional Questions</h2>
+            <div class="form-group">
+                <label for="vegetarian">Are you a vegetarian?</label>
+                <select class="form-control" name="vegetarian" id="vegetarian" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="music">Are you comfortable with a roommate who enjoys playing musical instruments?</label>
+                <select class="form-control" name="music" id="music" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="smoker">Do you smoke?</label>
+                <select class="form-control" name="smoker" id="smoker" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="riser">Are you an early riser?</label>
+                <select class="form-control" name="riser" id="riser" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tidy">Do you like to keep the living space tidy and organized?</label>
+                <select class="form-control" name="tidy" id="tidy" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </div>
+            <!-- <h2>Additional Questions</h2>
+            <div class="form-group">
+                <label for="vegetarian">Are you a vegetarian?</label>
+                <select class="form-control" name="vegetarian" id="vegetarian" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="music">Are you comfortable with a roommate who enjoys playing musical instruments?</label>
+                <select class="form-control" name="music" id="music" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="smoker">Do you smoke?</label>
+                <select class="form-control" name="smoker" id="smoker" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="riser">Are you an early riser?</label>
+                <select class="form-control" name="riser" id="riser" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tidy">Do you like to keep the living space tidy and organized?</label>
+                <select class="form-control" name="tidy" id="tidy" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div> -->
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+        {% endif %}
+        </div>
+    
+
+    <!-- <script>
+        // JavaScript function to update the slider value display
+        function updateSliderValue(sliderId) {
+            var slider = document.getElementById(sliderId);
+            var valueSpan = document.getElementById(sliderId + '_value');
+            valueSpan.textContent = slider.value;
+        }
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

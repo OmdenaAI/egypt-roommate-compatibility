@@ -1,0 +1,282 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        header{
+            /* background-image: url('images/back.jpg.jpg'); */
+            height: 800px;
+            width: 100%;
+            background-color: #05e8ba;
+            background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+
+            /* background-repeat: no-repeat;
+            background-size: cover; */
+        }       
+
+        </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="nav-item">
+                <a href="#">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">Contact</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">Products</a>
+            </div>
+    
+            <div class="nav-item">
+                <a href="#">Login/Sign Up</a>
+            </div>
+        </div> 
+    
+        <div class="hero-section">
+            
+                <h1>Innovation Driven</h1>
+                <h2>Solutions For a Better Life</h2>
+                <button class="hero-button">Learn More</button>
+            
+        </div>
+    
+    </header>
+    
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #05e8ba;
+            background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            color: black;
+            background-color: white;
+        }
+        a {
+        text-decoration: none !important;
+    }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roommate Compatibility Test</h1>
+        <p>Find your compatible partner!</p>
+        <a href="{% url 'main' %}" class="btn">Take your test</a>
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- TEXTTTTT
+this is my current code for the home page of my compatibility test django website using ML model which tells the user if someone is extrovert or introvert.
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        header{
+            /* background-image: url('images/back.jpg.jpg'); */
+            height: 800px;
+            width: 100%;
+            background-color: #05e8ba;
+            background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+
+            /* background-repeat: no-repeat;
+            background-size: cover; */
+        }       
+
+        </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="nav-item">
+                <a href="#">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">About</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">Contact</a>
+            </div>
+            <div class="nav-item">
+                <a href="#">Products</a>
+            </div>
+    
+            <div class="nav-item">
+                <a href="#">Login/Sign Up</a>
+            </div>
+        </div> 
+    
+        <div class="hero-section">
+            
+                <h1>Innovation Driven</h1>
+                <h2>Solutions For a Better Life</h2>
+                <button class="hero-button">Learn More</button>
+            
+        </div>
+    
+    </header>
+    
+</body>
+</html> 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #05e8ba;
+            background-image: linear-gradient(315deg, #05e8ba 0%, #087ee1 74%);
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: transparent;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            color: black;
+            background-color: white;
+        }
+        a {
+        text-decoration: none !important;
+    }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roommate Compatibility Test</h1>
+        <p>Find your compatible partner!</p>
+        <a href="{% url 'main' %}" class="btn">Take your test</a>
+    </div>
+</body>
+
+</html>
+
+now i have a question.html page which has basic nav bar, my requirements are:
+
+i need a transparent navbar with 
+
+
+
+-->
